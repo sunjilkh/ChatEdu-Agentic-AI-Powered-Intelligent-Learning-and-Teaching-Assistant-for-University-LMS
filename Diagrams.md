@@ -1,5 +1,106 @@
 # Project Diagrams
 
+## DFD-0 (System Context)
+
+```mermaid
+flowchart TD
+  User["User"]
+  System["Course Platform"]
+  DB["Database"]
+  AI["AI Service"]
+  YT["YouTube API"]
+  IMG["Image Generation API"]
+
+  User -- Interacts --> System
+  System -- Stores/Retrieves --> DB
+  System -- Sends Prompts --> AI
+  System -- Gets Videos --> YT
+  System -- Gets Images --> IMG
+```
+
+## DFD-1 (Major Modules)
+
+```mermaid
+flowchart TD
+  User["User"]
+  Auth["Authentication Module"]
+  CourseGen["Course Generation Module"]
+  ContentGen["Content Generation Module"]
+  Enroll["Enrollment Module"]
+  Progress["Progress Tracking Module"]
+  DB["Database"]
+  AI["AI Service"]
+  YT["YouTube API"]
+  IMG["Image Generation API"]
+
+  User -- Sign In/Up --> Auth
+  Auth -- User Data --> DB
+  User -- Create Course --> CourseGen
+  CourseGen -- Store Course --> DB
+  CourseGen -- Send Prompt --> AI
+  AI -- Course Layout --> CourseGen
+  CourseGen -- Banner Prompt --> IMG
+  IMG -- Banner Image --> CourseGen
+  User -- Edit Course --> ContentGen
+  ContentGen -- Store Content --> DB
+  ContentGen -- Send Chapters --> AI
+  AI -- Content JSON --> ContentGen
+  ContentGen -- Get Videos --> YT
+  YT -- Video Links --> ContentGen
+  User -- Enroll Course --> Enroll
+  Enroll -- Save Enrollment --> DB
+  User -- View Course/Progress --> Progress
+  Progress -- Update Progress --> DB
+```
+
+## DFD-2 (Detailed Data Flows)
+
+```mermaid
+flowchart TD
+  subgraph User Actions
+    U1["Sign Up/Sign In"]
+    U2["Create Course"]
+    U3["Edit Course"]
+    U4["Enroll Course"]
+    U5["View Course/Progress"]
+  end
+
+  subgraph Backend Modules
+    Auth["Authentication"]
+    CourseGen["Course Generation"]
+    ContentGen["Content Generation"]
+    Enroll["Enrollment"]
+    Progress["Progress Tracking"]
+  end
+
+  subgraph External Services
+    AI["AI Service"]
+    YT["YouTube API"]
+    IMG["Image Generation API"]
+  end
+
+  DB["Database"]
+
+  U1 --> Auth
+  Auth -- User Data --> DB
+  U2 --> CourseGen
+  CourseGen -- Store Course --> DB
+  CourseGen -- Send Prompt --> AI
+  AI -- Course Layout --> CourseGen
+  CourseGen -- Banner Prompt --> IMG
+  IMG -- Banner Image --> CourseGen
+  U3 --> ContentGen
+  ContentGen -- Store Content --> DB
+  ContentGen -- Send Chapters --> AI
+  AI -- Content JSON --> ContentGen
+  ContentGen -- Get Videos --> YT
+  YT -- Video Links --> ContentGen
+  U4 --> Enroll
+  Enroll -- Save Enrollment --> DB
+  U5 --> Progress
+  Progress -- Update Progress --> DB
+```
+
 ## Use Case Diagram
 
 ```mermaid
@@ -38,38 +139,6 @@ graph TD;
   Progress -->|Update| DB
   CourseCreation -->|Banner Prompt| ImageGen
   ImageGen -->|Banner Image| CourseCreation
-```
-
-## DFD-0/1/2 Diagram (System Context and Data Flows)
-
-```mermaid
-flowchart TD
-  User["User"]
-  Auth["Authentication"]
-  Dashboard["Dashboard"]
-  CourseGen["Course Generation"]
-  ContentGen["Content Generation"]
-  Enroll["Enrollment"]
-  Progress["Progress Tracking"]
-  DB["Database"]
-  AI["AI Service"]
-  ImgGen["Image Generation"]
-  YT["YouTube API"]
-
-  User --> Auth
-  Auth --> Dashboard
-  Dashboard --> CourseGen
-  CourseGen --> AI
-  CourseGen --> ImgGen
-  CourseGen --> DB
-  Dashboard --> ContentGen
-  ContentGen --> AI
-  ContentGen --> YT
-  ContentGen --> DB
-  Dashboard --> Enroll
-  Enroll --> DB
-  Dashboard --> Progress
-  Progress --> DB
 ```
 
 ## Sequence Diagram
