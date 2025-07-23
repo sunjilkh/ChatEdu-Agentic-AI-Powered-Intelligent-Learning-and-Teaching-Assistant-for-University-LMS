@@ -104,41 +104,29 @@ flowchart TD
 ## Use Case Diagram
 
 ```mermaid
-graph TD;
-  User["User"]
-  Auth["Authentication (Sign In/Up)"]
-  Dashboard["Dashboard / Workspace"]
-  CourseCreation["Create Course (AI)"]
-  CourseEdit["Edit Course"]
-  CourseContentGen["Generate Course Content (AI)"]
-  Enroll["Enroll in Course"]
-  ViewCourse["View Course"]
-  Progress["Track Progress"]
-  DB["Database"]
-  AI["AI Service (Google GenAI)"]
-  ImageGen["Image Generation API"]
-  YouTube["YouTube API"]
+%% UML Use Case Diagram with stickman actor
+usecaseDiagram
+  actor User as "User"
+  User --> (Sign In/Up)
+  User --> (Create Course (AI))
+  User --> (Edit Course)
+  User --> (Generate Course Content (AI))
+  User --> (Enroll in Course)
+  User --> (View Course)
+  User --> (Track Progress)
 
-  User -->|Sign In/Up| Auth
-  Auth --> Dashboard
-  Dashboard -->|Create| CourseCreation
-  CourseCreation -->|Send Details| AI
-  AI -->|Course Layout| CourseCreation
-  CourseCreation -->|Save| DB
-  Dashboard -->|Edit| CourseEdit
-  CourseEdit -->|Generate Content| CourseContentGen
-  CourseContentGen -->|Send Chapters| AI
-  AI -->|Content| CourseContentGen
-  CourseContentGen -->|Get Videos| YouTube
-  YouTube -->|Video Links| CourseContentGen
-  CourseContentGen -->|Save| DB
-  Dashboard -->|Enroll| Enroll
-  Enroll -->|Save| DB
-  Dashboard -->|View| ViewCourse
-  ViewCourse -->|Show Progress| Progress
-  Progress -->|Update| DB
-  CourseCreation -->|Banner Prompt| ImageGen
-  ImageGen -->|Banner Image| CourseCreation
+  (Sign In/Up) --> (Dashboard / Workspace)
+  (Dashboard / Workspace) --> (Create Course (AI))
+  (Dashboard / Workspace) --> (Edit Course)
+  (Dashboard / Workspace) --> (Enroll in Course)
+  (Dashboard / Workspace) --> (View Course)
+
+  (Create Course (AI)) --> (Generate Course Content (AI))
+  (Create Course (AI)) --> (Banner Image Generation)
+  (Generate Course Content (AI)) --> (Get Videos)
+  (Generate Course Content (AI)) --> (Save Content)
+  (Enroll in Course) --> (Save Enrollment)
+  (View Course) --> (Track Progress)
 ```
 
 ## Sequence Diagram
