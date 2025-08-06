@@ -1,3 +1,15 @@
+
+def detect_query_language(text: str) -> str:
+    """Simple language detection for queries"""
+    try:
+        from langdetect import detect
+        return detect(text)
+    except:
+        # Fallback: check for common English CS terms
+        english_terms = ['what', 'how', 'algorithm', 'complexity', 'tree', 'sort', 'search']
+        if any(term in text.lower() for term in english_terms):
+            return 'en'
+        return 'bn'
 from langchain_chroma import Chroma
 from embedding import get_embedding_function_with_fallback
 import os
@@ -187,6 +199,70 @@ def load_database(persist_directory="db"):
     """
     return db_manager.get_database()
 
+
+def enhanced_english_retrieval(query_text: str, db, k: int = 3):
+    """Enhanced retrieval specifically for English technical queries"""
+    
+    # Expand technical abbreviations
+    technical_abbreviations = {
+        'BST': 'Binary Search Tree',
+        'DP': 'Dynamic Programming',
+        'DFS': 'Depth First Search',
+        'BFS': 'Breadth First Search',
+        'AVL': 'Adelson-Velsky and Landis Tree',
+        'MST': 'Minimum Spanning Tree'
+    }
+    
+    enhanced_query = query_text
+    for abbr, full in technical_abbreviations.items():
+        if abbr in enhanced_query:
+            enhanced_query = enhanced_query.replace(abbr, full)
+    
+    # Increase retrieval count for English queries to get better context
+    english_k = max(k + 2, 5)  # At least 5 chunks for English
+    
+    try:
+        results = db.similarity_search(enhanced_query, k=english_k)
+        
+        # Re-rank results based on technical term density
+        scored_results = []
+        for result in results:
+            score = calculate_technical_relevance(result.page_content, query_text)
+            scored_results.append((score, result))
+        
+        # Sort by score and return top k
+        scored_results.sort(key=lambda x: x[0], reverse=True)
+        return [result for _, result in scored_results[:k]]
+    
+    except Exception as e:
+        print(f"⚠️ Enhanced retrieval failed, using standard: {e}")
+        return db.similarity_search(query_text, k=k)
+
+
+def calculate_technical_relevance(content: str, query: str) -> float:
+    """Calculate technical relevance score for content"""
+    
+    # Technical terms that indicate algorithmic content
+    technical_terms = [
+        'algorithm', 'complexity', 'time', 'space', 'big o', 'o(n)',
+        'recursive', 'iterative', 'data structure', 'binary', 'tree',
+        'graph', 'sorting', 'searching', 'dynamic programming', 'greedy'
+    ]
+    
+    content_lower = content.lower()
+    query_lower = query.lower()
+    
+    # Base score from query term matches
+    query_words = query_lower.split()
+    base_score = sum(1 for word in query_words if word in content_lower)
+    
+    # Bonus for technical terms
+    tech_score = sum(1 for term in technical_terms if term in content_lower)
+    
+    # Length penalty for very short content
+    length_factor = min(len(content) / 100, 1.0)
+    
+    return (base_score * 2 + tech_score) * length_factor
 
 def query_database(db, query, k=RETRIEVAL_COUNT):
     """

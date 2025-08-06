@@ -8,6 +8,73 @@ from query_database import load_database, query_database, generate_prompt_templa
 from translator import process_query_with_translation
 from config import PREFERRED_MODEL, FALLBACK_MODELS, MAX_TOKENS, TEMPERATURE, TIMEOUT
 
+def generate_enhanced_english_prompt(question: str, context: str) -> str:
+    """Generate enhanced prompt specifically optimized for English technical queries"""
+    
+    # Detect question type for appropriate response format
+    question_lower = question.lower()
+    
+    if any(phrase in question_lower for phrase in ['what is', 'define', 'definition of']):
+        instruction = """
+INSTRUCTIONS FOR DEFINITION:
+- Provide a clear, concise definition (1-2 sentences)
+- Include key characteristics or properties  
+- Use precise technical terminology
+- Avoid excessive detail unless specifically asked
+
+ANSWER (concise definition):"""
+    
+    elif any(phrase in question_lower for phrase in ['how does', 'how to', 'explain how']):
+        instruction = """
+INSTRUCTIONS FOR PROCESS:
+- Explain the key steps or process briefly
+- Focus on the main algorithm or procedure
+- Include time/space complexity if relevant
+- Keep explanation structured and clear
+
+ANSWER (process explanation):"""
+    
+    elif any(phrase in question_lower for phrase in ['time complexity', 'space complexity', 'complexity']):
+        instruction = """
+INSTRUCTIONS FOR COMPLEXITY:
+- State both average case and worst case if different
+- Use Big O notation correctly
+- Be specific about what operations are being measured
+- Include space complexity if relevant
+
+ANSWER (complexity analysis):"""
+    
+    elif any(phrase in question_lower for phrase in ['used for', 'purpose of', 'why use']):
+        instruction = """
+INSTRUCTIONS FOR PURPOSE:
+- Explain the main use case or application
+- Include why it's preferred over alternatives
+- Mention key advantages
+- Keep explanation practical and clear
+
+ANSWER (purpose explanation):"""
+    
+    else:
+        instruction = """
+INSTRUCTIONS:
+- Answer exactly what is asked - no more, no less
+- Be precise and factually accurate
+- Include relevant technical details
+- Cite page numbers when available
+
+ANSWER:"""
+
+    template = f"""You are an expert computer science educator specializing in algorithms and data structures.
+Answer the question based ONLY on the provided context. Be precise, accurate, and appropriately scoped.
+
+CONTEXT:
+{context}
+
+QUESTION: {question}
+{instruction}"""
+    
+    return template
+
 
 class OptimizedModelManager:
     """Singleton model manager with caching and optimization"""
@@ -424,7 +491,14 @@ def optimized_rag_query(query: str, k: int = 3) -> Dict[str, Any]:
 
     if answer:
         sources = [
-            {"page": doc.metadata.get("page"), "id": doc.metadata.get("id")}
+            {
+                "page": doc.metadata.get("page"),
+                "page_number": doc.metadata.get("page_number"),
+                "file_name": doc.metadata.get("file_name"),
+                "source_file": doc.metadata.get("source_file"),
+                "title": doc.metadata.get("title"),
+                "id": doc.metadata.get("id"),
+            }
             for doc in results
         ]
         return {

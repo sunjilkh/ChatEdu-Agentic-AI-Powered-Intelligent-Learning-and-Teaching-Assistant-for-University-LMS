@@ -116,6 +116,41 @@ def detect_language(text):
         return "en"  # Default to English if detection fails
 
 
+
+def preprocess_english_technical_query(text: str) -> str:
+    """Preprocess English queries for better technical term matching"""
+    import re
+    
+    # Expand common abbreviations
+    abbreviations = {
+        'BST': 'Binary Search Tree',
+        'DP': 'Dynamic Programming', 
+        'DFS': 'Depth First Search',
+        'BFS': 'Breadth First Search',
+        'AVL': 'Adelson-Velsky and Landis Tree',
+        'MST': 'Minimum Spanning Tree',
+        'LCS': 'Longest Common Subsequence'
+    }
+    
+    for abbr, full in abbreviations.items():
+        # Use word boundaries to avoid partial matches
+        pattern = r'\b' + re.escape(abbr) + r'\b'
+        text = re.sub(pattern, full, text, flags=re.IGNORECASE)
+    
+    # Normalize technical terms
+    normalizations = {
+        r'\balgos?\b': 'algorithm',
+        r'\bstruct\b': 'structure', 
+        r'\bfuncs?\b': 'function',
+        r'\bcomplexity\b': 'time complexity space complexity'  # Expand for better matching
+    }
+    
+    for pattern, replacement in normalizations.items():
+        text = re.sub(pattern, replacement, text, flags=re.IGNORECASE)
+    
+    return text
+
+
 def get_mixed_language_embedding(text):
     """
     Generate embedding for text using language-appropriate model.

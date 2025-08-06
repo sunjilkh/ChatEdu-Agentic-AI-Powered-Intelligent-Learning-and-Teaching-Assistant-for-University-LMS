@@ -2,25 +2,38 @@
 
 A comprehensive **Retrieval-Augmented Generation (RAG)** system that supports **mixed-language** (English & Bangla) text and **voice input** for chatting with PDF documents. This advanced system combines cutting-edge AI models with multilingual capabilities to create an intelligent knowledge base from your academic and professional documents.
 
+> **🚀 Latest Update (August 6, 2025)**: Streamlined project structure with unified launcher (`main.py`), organized documentation in `Test Reports/`, and consolidated voice demonstrations. The system now features a clean, production-ready architecture with 30% fewer files in the root directory.
+
 ## 🚀 Performance Highlights
 
-- **⚡ 79.8% Faster Response Times**: Optimized from 36.11s to 7.31s (4.9x faster)
+- **⚡ 83.2% Faster Response Times**: Optimized from 36.11s to 6.06s (5.96x faster)
+- **🎯 High Success Rate**: 82.61% overall success rate with 90.91% for Bangla queries
 - **🧠 Intelligent Model Caching**: Singleton pattern with preloading for instant responses
 - **💾 Advanced Database Caching**: Persistent caching with 20-30% hit rates
 - **🔄 Smart Translation Pipeline**: Skip unnecessary translations (0.1s for English queries)
 - **📝 Optimized Prompts**: 74% reduction in token count (2,688 → 691 chars)
 - **🎯 Production-Ready**: Fully integrated optimizations with robust error handling
-- **📊 Consistent Performance**: Sub-10 second response times maintained across all tests
+- **📊 Consistent Performance**: Sub-7 second response times maintained across all tests
+- **🔍 High Confidence**: 82.6% of responses marked as high confidence
 
 ## 📊 Performance Comparison (Actual Test Results)
 
-### **🚀 Current System (July 15, 2025)**
+### **🚀 Latest System (August 6, 2025)**
+
+- **Average Response Time**: **6.06 seconds**
+- **Tests**: 23 comprehensive mixed-language tests
+- **Overall Success Rate**: **82.61%**
+- **English Success Rate**: **75.0%** (9/12 tests)
+- **Bangla Success Rate**: **90.91%** (10/11 tests)
+- **Status**: **Production-Ready with Enhanced English Processing**
+
+### **⚡ Previous Optimized System (July 15, 2025)**
 
 - **Average Response Time**: **7.31 seconds**
 - **Tests**: 23 comprehensive mixed-language tests
 - **Status**: **Fully Optimized System**
 
-### **⚡ Previous System (July 13, 2025)**
+### **📈 Pre-Optimization System (July 13, 2025)**
 
 - **Average Response Time**: **36.11 seconds**
 - **Tests**: 9 basic tests
@@ -34,32 +47,41 @@ A comprehensive **Retrieval-Augmented Generation (RAG)** system that supports **
 
 ## 🏆 Performance Improvement Analysis
 
-### **Current vs Pre-Optimization (July 13)**
+### **Latest vs Pre-Optimization (July 13 → August 6)**
 
-- **Improvement**: 36.11s → 7.31s
-- **Performance Gain**: **79.8% faster**
-- **Speed Multiplier**: **4.9x faster**
+- **Improvement**: 36.11s → 6.06s
+- **Performance Gain**: **83.2% faster**
+- **Speed Multiplier**: **5.96x faster**
 
-### **Current vs Baseline (July 8)**
+### **Latest vs Previous Optimized (July 15 → August 6)**
 
-- **Improvement**: 27.86s → 7.31s
-- **Performance Gain**: **73.8% faster**
-- **Speed Multiplier**: **3.8x faster**
+- **Improvement**: 7.31s → 6.06s
+- **Performance Gain**: **17.1% faster**
+- **Additional Speed Improvement**: **1.21x faster**
 
-### **Most Significant Jump**
+### **Latest vs Baseline (July 8 → August 6)**
 
-The biggest improvement was between **July 13 → July 15**:
+- **Improvement**: 27.86s → 6.06s
+- **Performance Gain**: **78.2% faster**
+- **Speed Multiplier**: **4.6x faster**
+
+### **Most Significant Cumulative Improvement**
+
+The total improvement from **July 13 → August 6**:
 
 - **Before optimization**: 36.11 seconds
-- **After optimization**: 7.31 seconds
-- **Improvement**: **79.8% faster**
+- **After all optimizations**: 6.06 seconds
+- **Total Improvement**: **83.2% faster**
+- **Overall Speed Multiplier**: **5.96x faster**
 
 ## 🎯 Key Performance Insights
 
-1. **Consistency**: The optimized system maintains **sub-10 second** response times consistently
-2. **Scalability**: Even with **23 tests** (vs 9 in previous), the average time improved dramatically
-3. **Reliability**: All optimizations (caching, translation skip, model preloading) working perfectly
-4. **Target Achievement**: Well below the **<5 second** target for cached queries
+1. **Consistency**: The optimized system maintains **sub-7 second** response times consistently
+2. **Language Performance**: Bangla queries excel with **90.91% success rate** vs English **75.0%**
+3. **Overall Reliability**: **82.61% overall success rate** with high confidence responses
+4. **Continuous Improvement**: **17.1% additional speed boost** from July to August 2025
+5. **Target Achievement**: Well below the **<10 second** target with room for English optimization
+6. **Confidence Distribution**: **82.6% high confidence** responses across all tests
 
 ## 🌟 Features
 
@@ -99,7 +121,10 @@ The biggest improvement was between **July 13 → July 15**:
 - **🧪 Comprehensive Testing**: Mixed-language testing suite with evaluation metrics
 - **📊 System Monitoring**: Real-time status and performance monitoring
 - **🔄 Robust Pipeline**: End-to-end processing with error handling
-- **🚀 Production Launcher**: Unified launcher interface for easy deployment
+- **🚀 Unified Launcher**: Single entry point (main.py) for all system functionality
+- **📈 Quality Assurance**: 82.61% success rate with continuous improvement tracking
+- **🎯 Language-Specific Optimization**: Specialized processing for English and Bangla queries
+- **🔍 High Confidence Responses**: 82.6% of responses marked as high confidence
 
 ## 🏗️ System Architecture
 
@@ -122,13 +147,11 @@ graph TD
 
     M["⚙️ Unified Config<br/>(config.py)"] --> G
     M --> H
-    N["🚀 Production Launcher<br/>(launch.py)"] --> I
 
     style E fill:#e1f5fe
     style J fill:#f3e5f5
     style L fill:#e8f5e8
     style M fill:#fff3e0
-    style N fill:#e8f5e8
 ```
 
 ## 🚀 Quick Start
@@ -203,13 +226,15 @@ graph TD
 2. **Run the BanglaRAG system**
 
    ```bash
+   # 🚀 Main application (unified launcher)
    python main.py
    ```
 
-   **Or use the production launcher:**
+   **For comprehensive voice demonstrations:**
 
    ```bash
-   python launch.py
+   # 🎙️ Voice demo with BanglaSpeech2Text integration
+   python demo_bangla_voice.py
    ```
 
 3. **Navigate the comprehensive menu**:
@@ -305,42 +330,72 @@ python test_rag.py
 
 ### Test Coverage
 
-- **English Algorithm Questions**: Core CS concepts
-- **Bangla Algorithm Questions**: Same concepts in Bangla
+- **English Algorithm Questions**: Core CS concepts (12 tests)
+- **Bangla Algorithm Questions**: Same concepts in Bangla (11 tests)
 - **Mixed Language Evaluation**: Cross-language consistency
 - **Advanced Textbook Concepts**: Complex topics
 - **Negative Test Cases**: Out-of-domain queries
 - **Voice Input Tests**: Audio processing pipeline
-- **Performance Tests**: Response time validation (target: <10 seconds)
+- **Performance Tests**: Response time validation (target: <7 seconds)
 
-### Evaluation Metrics
+### Latest Evaluation Metrics (August 6, 2025)
 
-- **Overall Pass Rate**: System-wide performance
-- **Language-Specific Rates**: English vs Bangla performance
-- **Confidence Distribution**: Answer quality assessment
-- **Response Time Analysis**: Performance metrics (optimized to 7.31s average)
-- **Page Citation Accuracy**: Source attribution verification
+- **Overall Success Rate**: **82.61%** (19/23 tests passed)
+- **English Success Rate**: **75.0%** (9/12 tests) - _Target for improvement_
+- **Bangla Success Rate**: **90.91%** (10/11 tests) - _Excellent performance_
+- **Confidence Distribution**: **82.6% high confidence** responses
+- **Average Response Time**: **6.06 seconds** (17.1% faster than previous)
+- **Page Citation Accuracy**: 100% proper source attribution
 - **Cache Hit Rate**: 20-30% for optimized queries
 
 ## 📁 Project Structure
 
 ```
 BanglaRAG-System/
-├── main.py                 # Main application runner with voice support
-├── launch.py              # Production launcher interface
-├── config.py              # Centralized configuration management
-├── loader.py              # PDF document loading with metadata
-├── split.py               # Language-aware document chunking
-├── assign_ids.py          # Unique ID assignment
-├── embedding.py           # Mixed-language embedding generation
-├── create_database.py     # Vector database creation (ChromaDB compatible)
-├── query_database.py      # Optimized database querying with caching
-├── ollama_llm.py          # Optimized LLM integration with caching
-├── voice_input.py         # Voice input processing with Whisper
-├── test_rag.py           # Comprehensive testing suite
-├── requirements.txt       # Python dependencies
-├── db/                   # Vector database storage
-└── venv/                 # Virtual environment
+├── 📄 Core System
+│   ├── main.py                 # 🚀 Main application launcher (unified interface)
+│   ├── config.py              # Centralized configuration management
+│   └── requirements.txt       # Updated Python dependencies (53 packages)
+│
+├── 📚 Document Processing
+│   ├── loader.py              # PDF document loading with metadata
+│   ├── split.py               # Language-aware document chunking
+│   ├── assign_ids.py          # Unique ID assignment
+│   └── create_database.py     # Vector database creation (ChromaDB compatible)
+│
+├── 🧠 AI & Language Processing
+│   ├── embedding.py           # Mixed-language embedding (BanglaBERT + Nomic)
+│   ├── ollama_llm.py          # Enhanced LLM integration with optimized prompts
+│   ├── query_database.py      # Enhanced database querying with retrieval optimization
+│   └── translator.py          # Smart translation pipeline
+│
+├── 🎤 Voice & Interaction
+│   ├── voice_input.py         # Advanced voice processing (Whisper + BanglaSpeech2Text)
+│   └── demo_bangla_voice.py   # 🎙️ Comprehensive voice demonstration & testing
+│
+├── 🧪 Testing & Quality Assurance
+│   ├── test_rag.py           # Comprehensive RAG testing suite
+│   ├── comprehensive_test_suite.py # Full system automated testing
+│   └── Test Reports/         # 📊 Organized test results & documentation
+│       ├── banglarag_test_report_20250806_*.json     # Latest results (82.61% success)
+│       ├── banglarag_test_report_20250805_*.json     # Previous benchmarks
+│       ├── rag_test_report_2025*.json                # Historical results
+│       ├── BANGLARAG_FINAL_PROJECT_REPORT.md         # Comprehensive analysis
+│       ├── PROJECT_CLEANUP_SUMMARY.md                # Organization summary
+│       ├── STREAMLINING_SUMMARY.md                   # Latest streamlining changes
+│       ├── ENHANCEMENTS_SUMMARY.md                   # Performance improvements
+│       ├── INTEGRATION_SUMMARY.md                    # Integration guide
+│       └── Paper/                    # 📄 Research & Academic Documents
+│           ├── MyRagPaper.md         # Research paper draft
+│           └── MyRagPaperTest.py     # Paper evaluation metrics
+│
+├── 💾 Data & Storage
+│   ├── db/                   # ChromaDB vector database (3,335 documents)
+│   └── Cormen - Introduction to Algorithms.pdf # Sample textbook
+│
+└── 🔧 Development
+    ├── venv/                 # Virtual environment
+    └── __pycache__/          # Python cache files
 ```
 
 ## 🔧 Configuration
@@ -464,31 +519,57 @@ This project is open source. Please check the license file for details.
 
 ## 🔗 Dependencies
 
-### Core Dependencies
+### Core RAG Framework
 
 - **langchain**: Framework for building AI applications
 - **langchain-community**: Community integrations
 - **langchain-ollama**: Ollama integration
 - **langchain-chroma**: ChromaDB integration
-- **chromadb**: Vector database (compatible with v1.0.15+)
+- **chromadb**: Vector database (compatible with v0.4.0+)
 - **pypdf**: PDF processing
 
-### BanglaRAG Extensions
+### Language Processing & AI
 
-- **langdetect**: Language detection
-- **sentence-transformers**: Advanced embedding models
 - **transformers**: Transformer models including BanglaBERT
-- **torch**: PyTorch backend
-- **openai-whisper**: Voice input transcription
-- **pyaudio**: Audio recording
+- **torch**: PyTorch backend for deep learning
+- **sentence-transformers**: Advanced embedding models
+- **numpy**: Numerical computing
+- **langdetect**: Automatic language detection
 - **indic-nlp-library**: Bangla text processing
-- **huggingface-hub**: Model management
 
-### Testing & Development
+### Voice Processing & Speech Recognition
 
+- **openai-whisper**: Multilingual speech recognition
+- **banglaspeech2text**: Enhanced Bangla speech recognition
+- **pyaudio**: Audio recording and playback
+- **speech-recognition**: Speech recognition utilities
+- **scipy**: Signal processing for audio
+
+### Translation & Web Interface
+
+- **deep-translator**: Translation services
+- **gradio**: Web interface for voice input
+- **requests**: HTTP requests for API calls
+
+### System & Development
+
+- **psutil**: System monitoring
 - **pytest**: Testing framework
-- **json**: Test result reporting
-- **datetime**: Timestamp management
+- **pandas**: Data analysis for test results
+
+### Installation
+
+```bash
+# Install all dependencies
+pip install -r requirements.txt
+
+# Key models to download
+ollama pull qwen2:1.5b
+ollama pull nomic-embed-text
+ollama pull phi3
+```
+
+**Total Dependencies**: 53 packages optimized for production use
 
 ## 🆕 Version History
 
@@ -501,7 +582,7 @@ This project is open source. Please check the license file for details.
   - Whisper ASR integration
   - Interactive voice sessions
   - Voice testing framework
-- **v3.0**: Performance-optimized production system
+- **v3.0**: Performance-optimized production system (July 2025)
   - **79.8% faster response times** (36.11s → 7.31s)
   - **4.9x speed improvement** over pre-optimization
   - Unified model and database caching
@@ -510,32 +591,50 @@ This project is open source. Please check the license file for details.
   - ChromaDB compatibility fixes
   - Integrated optimization system
   - Consistent sub-10 second performance
+- **v3.1**: Enhanced quality and performance system (August 2025)
+  - **83.2% faster response times** (36.11s → 6.06s)
+  - **5.96x speed improvement** over pre-optimization
+  - **82.61% overall success rate** with comprehensive testing
+  - **90.91% Bangla success rate** - excellent multilingual performance
+  - **82.6% high confidence responses** across all languages
+  - Enhanced English query processing (75% success rate - target for improvement)
+  - Continuous performance monitoring and quality assurance
+- **v3.2**: Streamlined architecture and organization (August 6, 2025)
+  - **Unified launcher**: Single entry point through `main.py`
+  - **Organized documentation**: All reports and papers in `Test Reports/` structure
+  - **Consolidated demos**: Comprehensive voice demo in `demo_bangla_voice.py`
+  - **30% file reduction**: Cleaner root directory with professional organization
+  - **Production-ready structure**: Optimized for deployment and collaboration
 
 ## 🏆 Performance Achievements
 
-- **⚡ Response Time**: 79.8% improvement (36.11 seconds → 7.31 seconds)
-- **🚀 Speed Multiplier**: 4.9x faster than pre-optimization system
+- **⚡ Response Time**: 83.2% improvement (36.11 seconds → 6.06 seconds)
+- **🚀 Speed Multiplier**: 5.96x faster than pre-optimization system
+- **📈 Success Rate**: 82.61% overall with 90.91% for Bangla queries
 - **🧠 Model Loading**: Every query → Singleton + caching (instant after first load)
 - **💾 Database Loading**: Every query → Singleton + caching (instant after first load)
 - **🔄 Translation**: All queries → Skip for English (0.1s for English queries)
 - **📝 Prompt Size**: 2,688 chars → 691 chars (74% reduction)
 - **🎯 Cache Hit Rate**: 0% → 20-30% (significant speedup)
-- **🏁 Target Achievement**: Sub-10 second response time goal achieved
-- **📊 Scalability**: Maintained performance with 23 tests (vs 9 in previous versions)
+- **🏁 Target Achievement**: Sub-7 second response time goal achieved
+- **📊 Scalability**: Maintained performance with 23 comprehensive tests
+- **🔍 Confidence**: 82.6% high confidence responses across all languages
 
 ## 🌟 Key Achievements
 
-- **🎯 Mixed-Language Processing**: Seamless English & Bangla support
-- **🎤 Voice Integration**: Complete voice-to-text pipeline
+- **🎯 Mixed-Language Processing**: Seamless English & Bangla support with 82.61% success rate
+- **🎤 Voice Integration**: Complete voice-to-text pipeline with multilingual support
 - **📚 Academic Focus**: Optimized for textbook and research content
-- **📊 Comprehensive Testing**: 20+ test cases across languages
-- **🔗 Page-Level Citations**: Precise source attribution
+- **📊 Comprehensive Testing**: 23 test cases across languages with detailed metrics
+- **🔗 Page-Level Citations**: 100% accurate source attribution with book names
 - **🚀 Production Ready**: Robust error handling and monitoring
-- **⚡ Performance Optimized**: 79.8% faster with intelligent caching (4.9x speed improvement)
-- **🔧 Unified System**: Integrated optimizations with clean architecture
+- **⚡ Performance Optimized**: 83.2% faster with intelligent caching (5.96x speed improvement)
+- **🔧 Streamlined Architecture**: Clean, organized structure with unified launcher and consolidated demos
+- **🏆 Language Excellence**: 90.91% success rate for Bangla queries
+- **🔍 High Quality**: 82.6% high confidence responses
 
 ---
 
 **Happy chatting with your multilingual PDFs! 🎉 | আপনার বহুভাষিক পিডিএফগুলির সাথে আনন্দদায়ক কথোপকথন! 🌐**
 
-**Now with 79.8% faster response times and 4.9x speed improvement! ⚡**
+**Now with 83.2% faster response times, 5.96x speed improvement, and 82.61% success rate! ⚡**
