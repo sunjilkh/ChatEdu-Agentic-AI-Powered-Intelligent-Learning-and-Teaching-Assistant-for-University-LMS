@@ -1,0 +1,344 @@
+{
+  "timestamp": "2025-08-06T19:51:42.684862",
+  "system_info": {
+    "platform": "Windows-11-10.0.26100-SP0",
+    "python_version": "3.13.1",
+    "architecture": "64bit",
+    "dependencies": {
+      "ollama_llm": "✅ Available",
+      "voice_input": "✅ Available",
+      "embedding": "✅ Available",
+      "banglaspeech2text": "✅ Available",
+      "transformers": "✅ Available (for BanglaBERT)",
+      "whisper": "✅ Available",
+      "chromadb": "✅ Available"
+    },
+    "files": {
+      "main.py": "✅ Present",
+      "voice_input.py": "✅ Present",
+      "embedding.py": "✅ Present",
+      "ollama_llm.py": "✅ Present",
+      "query_database.py": "✅ Present",
+      "create_database.py": "✅ Present",
+      "requirements.txt": "✅ Present",
+      "config.py": "✅ Present",
+      "launch.py": "✅ Present"
+    }
+  },
+  "component_tests": {
+    "System": [
+      {
+        "test_name": "Information Gathering",
+        "status": "PASS",
+        "details": {
+          "platform": "Windows-11-10.0.26100-SP0",
+          "python_version": "3.13.1",
+          "architecture": "64bit",
+          "dependencies": {
+            "ollama_llm": "✅ Available",
+            "voice_input": "✅ Available",
+            "embedding": "✅ Available",
+            "banglaspeech2text": "✅ Available",
+            "transformers": "✅ Available (for BanglaBERT)",
+            "whisper": "✅ Available",
+            "chromadb": "✅ Available"
+          },
+          "files": {
+            "main.py": "✅ Present",
+            "voice_input.py": "✅ Present",
+            "embedding.py": "✅ Present",
+            "ollama_llm.py": "✅ Present",
+            "query_database.py": "✅ Present",
+            "create_database.py": "✅ Present",
+            "requirements.txt": "✅ Present",
+            "config.py": "✅ Present",
+            "launch.py": "✅ Present"
+          }
+        },
+        "duration": 9.258675336837769,
+        "timestamp": "2025-08-06T19:51:51.944028"
+      }
+    ],
+    "Database": [
+      {
+        "test_name": "Load Database",
+        "status": "PASS",
+        "details": "Database loaded successfully",
+        "duration": 5.9604644775390625e-06,
+        "timestamp": "2025-08-06T19:51:51.944363"
+      },
+      {
+        "test_name": "Query Database",
+        "status": "FAIL",
+        "details": "No results returned",
+        "duration": 0.002216815948486328,
+        "timestamp": "2025-08-06T19:51:51.946626"
+      }
+    ],
+    "Embedding": [
+      {
+        "test_name": "Basic Embedding",
+        "status": "PASS",
+        "details": "Generated 768D embedding",
+        "duration": 0.5044729709625244,
+        "timestamp": "2025-08-06T19:51:52.451391"
+      },
+      {
+        "test_name": "Language Detection (en)",
+        "status": "PASS",
+        "details": "Correctly detected en",
+        "duration": 0.20972752571105957,
+        "timestamp": "2025-08-06T19:51:52.661221"
+      },
+      {
+        "test_name": "Language Detection (bn)",
+        "status": "PASS",
+        "details": "Correctly detected bn",
+        "duration": 0.0004363059997558594,
+        "timestamp": "2025-08-06T19:51:52.661799"
+      },
+      {
+        "test_name": "Language Detection (en)",
+        "status": "PASS",
+        "details": "Correctly detected en",
+        "duration": 0.0019271373748779297,
+        "timestamp": "2025-08-06T19:51:52.663804"
+      },
+      {
+        "test_name": "BanglaBERT",
+        "status": "PASS",
+        "details": "Generated 768D Bangla embedding",
+        "duration": 4.212167263031006,
+        "timestamp": "2025-08-06T19:51:56.876036"
+      },
+      {
+        "test_name": "Mixed Language",
+        "status": "PASS",
+        "details": "Generated mixed embedding",
+        "duration": 0.5408191680908203,
+        "timestamp": "2025-08-06T19:51:57.416980"
+      }
+    ],
+    "Voice": [
+      {
+        "test_name": "Whisper Model Loading",
+        "status": "PASS",
+        "details": "Whisper tiny model loaded",
+        "duration": null,
+        "timestamp": "2025-08-06T19:51:57.789341"
+      },
+      {
+        "test_name": "BanglaSpeech2Text Model",
+        "status": "SKIP",
+        "details": "BanglaSpeech2Text not installed",
+        "duration": null,
+        "timestamp": "2025-08-06T19:51:57.789398"
+      },
+      {
+        "test_name": "Audio Device Check",
+        "status": "PASS",
+        "details": "Found 11 audio devices",
+        "duration": null,
+        "timestamp": "2025-08-06T19:51:57.858529"
+      },
+      {
+        "test_name": "Gradio Interface",
+        "status": "FAIL",
+        "details": "Failed to create Gradio interface",
+        "duration": null,
+        "timestamp": "2025-08-06T19:51:57.858778"
+      }
+    ],
+    "RAG": [
+      {
+        "test_name": "Query Processing (en)",
+        "status": "PASS",
+        "details": "Generated 115 char response in 3.46s",
+        "duration": 3.4626119136810303,
+        "timestamp": "2025-08-06T19:52:01.321627"
+      },
+      {
+        "test_name": "Citation Generation (en)",
+        "status": "PASS",
+        "details": "Generated 3 citations",
+        "duration": null,
+        "timestamp": "2025-08-06T19:52:01.321733"
+      },
+      {
+        "test_name": "Citation Quality 1",
+        "status": "PASS",
+        "details": "Good citation: [9780262270830] Introduction to Algorithms, third ...",
+        "duration": null,
+        "timestamp": "2025-08-06T19:52:01.321800"
+      },
+      {
+        "test_name": "Citation Quality 2",
+        "status": "PASS",
+        "details": "Good citation: [9780262270830] Introduction to Algorithms, third ...",
+        "duration": null,
+        "timestamp": "2025-08-06T19:52:01.321866"
+      },
+      {
+        "test_name": "Query Processing (bn)",
+        "status": "PASS",
+        "details": "Generated 172 char response in 8.76s",
+        "duration": 8.763633489608765,
+        "timestamp": "2025-08-06T19:52:10.085556"
+      },
+      {
+        "test_name": "Citation Generation (bn)",
+        "status": "PASS",
+        "details": "Generated 3 citations",
+        "duration": null,
+        "timestamp": "2025-08-06T19:52:10.085660"
+      },
+      {
+        "test_name": "Citation Quality 1",
+        "status": "PASS",
+        "details": "Good citation: [9780262270830] Introduction to Algorithms, third ...",
+        "duration": null,
+        "timestamp": "2025-08-06T19:52:10.085728"
+      },
+      {
+        "test_name": "Citation Quality 2",
+        "status": "PASS",
+        "details": "Good citation: [9780262270830] Introduction to Algorithms, third ...",
+        "duration": null,
+        "timestamp": "2025-08-06T19:52:10.085792"
+      },
+      {
+        "test_name": "Query Processing (en)",
+        "status": "PASS",
+        "details": "Generated 927 char response in 8.45s",
+        "duration": 8.447738647460938,
+        "timestamp": "2025-08-06T19:52:18.533586"
+      },
+      {
+        "test_name": "Citation Generation (en)",
+        "status": "PASS",
+        "details": "Generated 3 citations",
+        "duration": null,
+        "timestamp": "2025-08-06T19:52:18.533688"
+      },
+      {
+        "test_name": "Citation Quality 1",
+        "status": "PASS",
+        "details": "Good citation: [9780262270830] Introduction to Algorithms, third ...",
+        "duration": null,
+        "timestamp": "2025-08-06T19:52:18.533749"
+      },
+      {
+        "test_name": "Citation Quality 2",
+        "status": "PASS",
+        "details": "Good citation: [9780262270830] Introduction to Algorithms, third ...",
+        "duration": null,
+        "timestamp": "2025-08-06T19:52:18.533808"
+      },
+      {
+        "test_name": "Empty Query Handling",
+        "status": "PASS",
+        "details": "Correctly handled empty query",
+        "duration": 7.152557373046875e-06,
+        "timestamp": "2025-08-06T19:52:18.533858"
+      },
+      {
+        "test_name": "Performance",
+        "status": "WARNING",
+        "details": "Avg response time: 6.89s (acceptable)",
+        "duration": null,
+        "timestamp": "2025-08-06T19:52:18.533908"
+      },
+      {
+        "test_name": "Reliability",
+        "status": "PASS",
+        "details": "Success rate: 100.0%",
+        "duration": null,
+        "timestamp": "2025-08-06T19:52:18.533994"
+      }
+    ],
+    "Translation": [
+      {
+        "test_name": "Translation (bangla)",
+        "status": "WARNING",
+        "details": "Unexpected behavior",
+        "duration": 0.21730756759643555,
+        "timestamp": "2025-08-06T19:52:18.751473"
+      },
+      {
+        "test_name": "Translation (bangla)",
+        "status": "WARNING",
+        "details": "Unexpected behavior",
+        "duration": 1.0782055854797363,
+        "timestamp": "2025-08-06T19:52:19.829791"
+      },
+      {
+        "test_name": "English Skip",
+        "status": "PASS",
+        "details": "Correctly skipped English translation",
+        "duration": 0.002080678939819336,
+        "timestamp": "2025-08-06T19:52:19.832025"
+      }
+    ],
+    "Config": [
+      {
+        "test_name": "Model Configuration",
+        "status": "PASS",
+        "details": "Preferred model: qwen2:1.5b",
+        "duration": null,
+        "timestamp": "2025-08-06T19:52:19.832214"
+      },
+      {
+        "test_name": "Fallback Models",
+        "status": "PASS",
+        "details": "Fallback models: 4 configured",
+        "duration": null,
+        "timestamp": "2025-08-06T19:52:19.832275"
+      },
+      {
+        "test_name": "Launcher Module",
+        "status": "PASS",
+        "details": "Launcher module available",
+        "duration": null,
+        "timestamp": "2025-08-06T19:52:19.833672"
+      }
+    ]
+  },
+  "performance_metrics": {
+    "average_response_time": 6.891328016916911,
+    "success_rate": 100.0,
+    "total_queries": 3,
+    "details": [
+      {
+        "query": "What is dynamic programming?",
+        "language": "en",
+        "duration": 3.4626119136810303,
+        "success": true
+      },
+      {
+        "query": "অ্যালগরিদম কি?",
+        "language": "bn",
+        "duration": 8.763633489608765,
+        "success": true
+      },
+      {
+        "query": "Explain sorting algorithms",
+        "language": "en",
+        "duration": 8.447738647460938,
+        "success": true
+      }
+    ]
+  },
+  "integration_tests": {
+    "total_tests": 34,
+    "passed": 28,
+    "failed": 2,
+    "warnings": 3,
+    "health_score": 82.35294117647058
+  },
+  "error_analysis": {},
+  "recommendations": [
+    "✅ Good system health. Address warnings for optimal performance.",
+    "🔧 Fix failed components to improve system reliability.",
+    "⚡ Consider performance optimization to reduce response times."
+  ]
+}

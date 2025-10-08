@@ -1,0 +1,318 @@
+2025-10-08 21:19:52 - PERF - Started: search_with_cache
+2025-10-08 21:19:52 - PERF - Started: similarity_search
+2025-10-08 21:19:52 - PERF - Completed: similarity_search - Duration: 0.04s
+2025-10-08 21:19:52 - PERF - Completed: search_with_cache - Duration: 0.04s
+2025-10-08 21:20:22 - PERF - Started: embed_text
+2025-10-08 21:20:22 - PERF - Completed: embed_text - Duration: 0.02s
+2025-10-08 21:21:25 - PERF - Started: search_with_cache
+2025-10-08 21:21:25 - PERF - Started: similarity_search
+2025-10-08 21:21:25 - PERF - Completed: similarity_search - Duration: 0.03s
+2025-10-08 21:21:25 - PERF - Completed: search_with_cache - Duration: 0.04s
+2025-10-08 21:21:33 - PERF - Started: search_with_cache
+2025-10-08 21:21:33 - PERF - Started: similarity_search
+2025-10-08 21:21:33 - PERF - Completed: similarity_search - Duration: 0.02s
+2025-10-08 21:21:33 - PERF - Completed: search_with_cache - Duration: 0.02s
+2025-10-08 21:23:05 - PERF - Started: search_with_cache
+2025-10-08 21:23:05 - PERF - Started: similarity_search
+2025-10-08 21:23:05 - PERF - Completed: similarity_search - Duration: 0.04s
+2025-10-08 21:23:05 - PERF - Completed: search_with_cache - Duration: 0.04s
+2025-10-08 21:24:32 - PERF - Started: add_documents
+2025-10-08 21:24:45 - PERF - Completed: add_documents - Duration: 13.06s
+2025-10-08 21:24:45 - PERF - Started: add_documents
+2025-10-08 21:25:02 - PERF - Completed: add_documents - Duration: 16.70s
+2025-10-08 21:25:02 - PERF - Started: add_documents
+2025-10-08 21:25:20 - PERF - Completed: add_documents - Duration: 18.47s
+2025-10-08 21:25:20 - PERF - Started: add_documents
+2025-10-08 21:25:36 - PERF - Completed: add_documents - Duration: 15.98s
+2025-10-08 21:25:36 - PERF - Started: add_documents
+2025-10-08 21:25:53 - PERF - Completed: add_documents - Duration: 16.31s
+2025-10-08 21:25:53 - PERF - Started: add_documents
+2025-10-08 21:26:09 - PERF - Completed: add_documents - Duration: 16.63s
+2025-10-08 21:26:09 - PERF - Started: add_documents
+2025-10-08 21:26:24 - PERF - Completed: add_documents - Duration: 14.55s
+2025-10-08 21:26:24 - PERF - Started: add_documents
+2025-10-08 21:26:39 - PERF - Completed: add_documents - Duration: 15.07s
+2025-10-08 21:26:39 - PERF - Started: add_documents
+2025-10-08 21:26:54 - PERF - Completed: add_documents - Duration: 14.93s
+2025-10-08 21:26:54 - PERF - Started: add_documents
+2025-10-08 21:27:10 - PERF - Completed: add_documents - Duration: 15.71s
+2025-10-08 21:27:10 - PERF - Started: add_documents
+2025-10-08 21:27:26 - PERF - Completed: add_documents - Duration: 16.36s
+2025-10-08 21:27:26 - PERF - Started: add_documents
+2025-10-08 21:27:42 - PERF - Completed: add_documents - Duration: 16.16s
+2025-10-08 21:27:42 - PERF - Started: add_documents
+2025-10-08 21:27:59 - PERF - Completed: add_documents - Duration: 16.73s
+2025-10-08 21:27:59 - PERF - Started: add_documents
+2025-10-08 21:28:17 - PERF - Completed: add_documents - Duration: 18.12s
+2025-10-08 21:28:17 - PERF - Started: add_documents
+2025-10-08 21:28:34 - PERF - Completed: add_documents - Duration: 16.70s
+2025-10-08 21:28:34 - PERF - Started: add_documents
+2025-10-08 21:28:49 - PERF - Completed: add_documents - Duration: 15.57s
+2025-10-08 21:28:49 - PERF - Started: add_documents
+2025-10-08 21:29:05 - PERF - Completed: add_documents - Duration: 16.02s
+2025-10-08 21:29:05 - PERF - Started: add_documents
+2025-10-08 21:29:22 - PERF - Completed: add_documents - Duration: 17.04s
+2025-10-08 21:29:22 - PERF - Started: add_documents
+2025-10-08 21:29:40 - PERF - Completed: add_documents - Duration: 18.01s
+2025-10-08 21:29:40 - PERF - Started: add_documents
+2025-10-08 21:29:56 - PERF - Completed: add_documents - Duration: 15.81s
+2025-10-08 21:29:56 - PERF - Started: add_documents
+2025-10-08 21:30:12 - PERF - Completed: add_documents - Duration: 16.28s
+2025-10-08 21:30:12 - PERF - Started: add_documents
+2025-10-08 21:30:30 - PERF - Completed: add_documents - Duration: 17.67s
+2025-10-08 21:30:30 - PERF - Started: add_documents
+2025-10-08 21:30:46 - PERF - Completed: add_documents - Duration: 16.08s
+2025-10-08 21:30:46 - PERF - Started: add_documents
+2025-10-08 21:31:04 - PERF - Completed: add_documents - Duration: 17.61s
+2025-10-08 21:31:04 - PERF - Started: add_documents
+2025-10-08 21:31:22 - PERF - Completed: add_documents - Duration: 17.97s
+2025-10-08 21:31:22 - PERF - Started: add_documents
+2025-10-08 21:31:40 - PERF - Completed: add_documents - Duration: 18.04s
+2025-10-08 21:31:40 - PERF - Started: add_documents
+2025-10-08 21:31:57 - PERF - Completed: add_documents - Duration: 16.71s
+2025-10-08 21:31:57 - PERF - Started: add_documents
+2025-10-08 21:32:13 - PERF - Completed: add_documents - Duration: 16.07s
+2025-10-08 21:32:13 - PERF - Started: add_documents
+2025-10-08 21:32:29 - PERF - Completed: add_documents - Duration: 16.89s
+2025-10-08 21:32:29 - PERF - Started: add_documents
+2025-10-08 21:32:44 - PERF - Completed: add_documents - Duration: 15.00s
+2025-10-08 21:32:44 - PERF - Started: add_documents
+2025-10-08 21:33:01 - PERF - Completed: add_documents - Duration: 16.27s
+2025-10-08 21:33:01 - PERF - Started: add_documents
+2025-10-08 21:33:17 - PERF - Completed: add_documents - Duration: 16.69s
+2025-10-08 21:33:17 - PERF - Started: add_documents
+2025-10-08 21:33:37 - PERF - Completed: add_documents - Duration: 19.61s
+2025-10-08 21:33:37 - PERF - Started: add_documents
+2025-10-08 21:33:44 - PERF - Completed: add_documents - Duration: 7.11s
+2025-10-08 21:36:16 - PERF - Started: search_with_cache
+2025-10-08 21:36:16 - PERF - Started: similarity_search
+2025-10-08 21:36:17 - PERF - Completed: similarity_search - Duration: 0.15s
+2025-10-08 21:36:17 - PERF - Completed: search_with_cache - Duration: 0.15s
+2025-10-08 21:36:17 - PERF - Started: process_rag_query
+2025-10-08 21:36:17 - PERF - Started: generate_response
+2025-10-08 21:36:17 - PERF - Started: generate_response
+2025-10-08 21:36:26 - PERF - Completed: generate_response - Duration: 9.27s
+2025-10-08 21:36:26 - PERF - Completed: generate_response - Duration: 9.27s
+2025-10-08 21:36:26 - PERF - Completed: process_rag_query - Duration: 9.27s
+2025-10-08 21:36:55 - PERF - Started: search_with_cache
+2025-10-08 21:36:55 - PERF - Started: similarity_search
+2025-10-08 21:36:55 - PERF - Completed: similarity_search - Duration: 0.03s
+2025-10-08 21:36:55 - PERF - Completed: search_with_cache - Duration: 0.03s
+2025-10-08 21:36:55 - PERF - Started: process_rag_query
+2025-10-08 21:36:55 - PERF - Started: generate_response
+2025-10-08 21:36:55 - PERF - Started: generate_response
+2025-10-08 21:37:04 - PERF - Completed: generate_response - Duration: 8.58s
+2025-10-08 21:37:04 - PERF - Completed: generate_response - Duration: 8.58s
+2025-10-08 21:37:04 - PERF - Completed: process_rag_query - Duration: 8.58s
+2025-10-08 21:37:20 - PERF - Started: search_with_cache
+2025-10-08 21:37:20 - PERF - Started: similarity_search
+2025-10-08 21:37:20 - PERF - Completed: similarity_search - Duration: 0.02s
+2025-10-08 21:37:20 - PERF - Completed: search_with_cache - Duration: 0.02s
+2025-10-08 21:37:20 - PERF - Started: process_rag_query
+2025-10-08 21:37:20 - PERF - Started: generate_response
+2025-10-08 21:37:20 - PERF - Started: generate_response
+2025-10-08 21:37:28 - PERF - Completed: generate_response - Duration: 8.74s
+2025-10-08 21:37:28 - PERF - Completed: generate_response - Duration: 8.74s
+2025-10-08 21:37:28 - PERF - Completed: process_rag_query - Duration: 8.74s
+2025-10-08 21:37:58 - PERF - Started: search_with_cache
+2025-10-08 21:37:58 - PERF - Started: similarity_search
+2025-10-08 21:37:58 - PERF - Completed: similarity_search - Duration: 0.02s
+2025-10-08 21:37:58 - PERF - Completed: search_with_cache - Duration: 0.02s
+2025-10-08 21:37:58 - PERF - Started: process_rag_query
+2025-10-08 21:37:58 - PERF - Started: generate_response
+2025-10-08 21:37:58 - PERF - Started: generate_response
+2025-10-08 21:38:05 - PERF - Completed: generate_response - Duration: 7.22s
+2025-10-08 21:38:05 - PERF - Completed: generate_response - Duration: 7.22s
+2025-10-08 21:38:05 - PERF - Completed: process_rag_query - Duration: 7.22s
+2025-10-08 21:38:50 - PERF - Started: search_with_cache
+2025-10-08 21:38:50 - PERF - Started: similarity_search
+2025-10-08 21:38:50 - PERF - Completed: similarity_search - Duration: 0.03s
+2025-10-08 21:38:50 - PERF - Completed: search_with_cache - Duration: 0.03s
+2025-10-08 21:38:50 - PERF - Started: process_rag_query
+2025-10-08 21:38:50 - PERF - Started: generate_response
+2025-10-08 21:38:50 - PERF - Started: generate_response
+2025-10-08 21:38:55 - PERF - Completed: generate_response - Duration: 5.70s
+2025-10-08 21:38:55 - PERF - Completed: generate_response - Duration: 5.71s
+2025-10-08 21:38:55 - PERF - Completed: process_rag_query - Duration: 5.71s
+2025-10-08 21:39:31 - PERF - Started: search_with_cache
+2025-10-08 21:39:31 - PERF - Started: similarity_search
+2025-10-08 21:39:31 - PERF - Completed: similarity_search - Duration: 0.03s
+2025-10-08 21:39:31 - PERF - Completed: search_with_cache - Duration: 0.03s
+2025-10-08 21:39:31 - PERF - Started: process_rag_query
+2025-10-08 21:39:31 - PERF - Started: generate_response
+2025-10-08 21:39:31 - PERF - Started: generate_response
+2025-10-08 21:39:37 - PERF - Completed: generate_response - Duration: 6.13s
+2025-10-08 21:39:37 - PERF - Completed: generate_response - Duration: 6.13s
+2025-10-08 21:39:37 - PERF - Completed: process_rag_query - Duration: 6.13s
+2025-10-08 21:40:02 - PERF - Started: search_with_cache
+2025-10-08 21:40:02 - PERF - Started: similarity_search
+2025-10-08 21:40:03 - PERF - Completed: similarity_search - Duration: 0.03s
+2025-10-08 21:40:03 - PERF - Completed: search_with_cache - Duration: 0.03s
+2025-10-08 21:40:03 - PERF - Started: process_rag_query
+2025-10-08 21:40:03 - PERF - Started: generate_response
+2025-10-08 21:40:03 - PERF - Started: generate_response
+2025-10-08 21:40:08 - PERF - Completed: generate_response - Duration: 5.89s
+2025-10-08 21:40:08 - PERF - Completed: generate_response - Duration: 5.89s
+2025-10-08 21:40:08 - PERF - Completed: process_rag_query - Duration: 5.89s
+2025-10-08 21:44:20 - PERF - Started: search_with_cache
+2025-10-08 21:44:20 - PERF - Started: similarity_search
+2025-10-08 21:44:20 - PERF - Completed: similarity_search - Duration: 0.09s
+2025-10-08 21:44:20 - PERF - Completed: search_with_cache - Duration: 0.09s
+2025-10-08 21:44:20 - PERF - Started: search_with_cache
+2025-10-08 21:44:20 - PERF - Started: similarity_search
+2025-10-08 21:44:20 - PERF - Completed: similarity_search - Duration: 0.02s
+2025-10-08 21:44:20 - PERF - Completed: search_with_cache - Duration: 0.02s
+2025-10-08 21:44:20 - PERF - Started: search_with_cache
+2025-10-08 21:44:20 - PERF - Started: similarity_search
+2025-10-08 21:44:20 - PERF - Completed: similarity_search - Duration: 0.02s
+2025-10-08 21:44:20 - PERF - Completed: search_with_cache - Duration: 0.02s
+2025-10-08 21:44:20 - PERF - Started: search_with_cache
+2025-10-08 21:44:20 - PERF - Started: similarity_search
+2025-10-08 21:44:20 - PERF - Completed: similarity_search - Duration: 0.02s
+2025-10-08 21:44:20 - PERF - Completed: search_with_cache - Duration: 0.02s
+2025-10-08 21:48:04 - PERF - Started: record_and_transcribe
+2025-10-08 21:48:04 - PERF - Started: record_audio
+2025-10-08 21:48:10 - PERF - Completed: record_audio - Duration: 5.28s
+2025-10-08 21:48:10 - PERF - Started: transcribe
+2025-10-08 21:48:11 - PERF - Completed: transcribe - Duration: 1.60s
+2025-10-08 21:48:11 - PERF - Completed: record_and_transcribe - Duration: 6.89s
+2025-10-08 21:48:11 - PERF - Started: search_with_cache
+2025-10-08 21:48:11 - PERF - Started: similarity_search
+2025-10-08 21:48:11 - PERF - Completed: similarity_search - Duration: 0.03s
+2025-10-08 21:48:11 - PERF - Completed: search_with_cache - Duration: 0.03s
+2025-10-08 21:48:11 - PERF - Started: process_rag_query
+2025-10-08 21:48:11 - PERF - Started: generate_response
+2025-10-08 21:48:11 - PERF - Started: generate_response
+2025-10-08 21:48:18 - PERF - Completed: generate_response - Duration: 6.60s
+2025-10-08 21:48:18 - PERF - Completed: generate_response - Duration: 6.60s
+2025-10-08 21:48:18 - PERF - Completed: process_rag_query - Duration: 6.60s
+2025-10-08 22:16:17 - PERF - Started: search_with_cache
+2025-10-08 22:16:17 - PERF - Started: similarity_search
+2025-10-08 22:16:17 - PERF - Completed: similarity_search - Duration: 0.09s
+2025-10-08 22:16:17 - PERF - Completed: search_with_cache - Duration: 0.09s
+2025-10-08 22:16:17 - PERF - Started: process_rag_query
+2025-10-08 22:16:17 - PERF - Started: generate_response
+2025-10-08 22:16:17 - PERF - Started: generate_response
+2025-10-08 22:16:25 - PERF - Completed: generate_response - Duration: 7.97s
+2025-10-08 22:16:25 - PERF - Completed: generate_response - Duration: 7.97s
+2025-10-08 22:16:25 - PERF - Completed: process_rag_query - Duration: 7.97s
+2025-10-08 22:17:10 - PERF - Started: record_and_transcribe
+2025-10-08 22:17:10 - PERF - Started: record_audio
+2025-10-08 22:17:15 - PERF - Completed: record_audio - Duration: 5.29s
+2025-10-08 22:17:15 - PERF - Started: transcribe
+2025-10-08 22:17:16 - PERF - Completed: transcribe - Duration: 1.00s
+2025-10-08 22:17:16 - PERF - Completed: record_and_transcribe - Duration: 6.29s
+2025-10-08 22:17:16 - PERF - Started: search_with_cache
+2025-10-08 22:17:16 - PERF - Started: similarity_search
+2025-10-08 22:17:16 - PERF - Completed: similarity_search - Duration: 0.03s
+2025-10-08 22:17:16 - PERF - Completed: search_with_cache - Duration: 0.03s
+2025-10-08 22:17:16 - PERF - Started: process_rag_query
+2025-10-08 22:17:16 - PERF - Started: generate_response
+2025-10-08 22:17:16 - PERF - Started: generate_response
+2025-10-08 22:17:25 - PERF - Completed: generate_response - Duration: 8.14s
+2025-10-08 22:17:25 - PERF - Completed: generate_response - Duration: 8.14s
+2025-10-08 22:17:25 - PERF - Completed: process_rag_query - Duration: 8.14s
+2025-10-08 22:17:43 - PERF - Started: record_and_transcribe
+2025-10-08 22:17:43 - PERF - Started: record_audio
+2025-10-08 22:17:48 - PERF - Completed: record_audio - Duration: 5.23s
+2025-10-08 22:17:48 - PERF - Started: transcribe
+2025-10-08 22:17:49 - PERF - Completed: transcribe - Duration: 1.38s
+2025-10-08 22:17:49 - PERF - Completed: record_and_transcribe - Duration: 6.61s
+2025-10-08 22:17:49 - PERF - Started: search_with_cache
+2025-10-08 22:17:49 - PERF - Started: similarity_search
+2025-10-08 22:17:49 - PERF - Completed: similarity_search - Duration: 0.03s
+2025-10-08 22:17:49 - PERF - Completed: search_with_cache - Duration: 0.03s
+2025-10-08 22:17:49 - PERF - Started: process_rag_query
+2025-10-08 22:17:49 - PERF - Started: generate_response
+2025-10-08 22:17:49 - PERF - Started: generate_response
+2025-10-08 22:17:54 - PERF - Completed: generate_response - Duration: 4.82s
+2025-10-08 22:17:54 - PERF - Completed: generate_response - Duration: 4.82s
+2025-10-08 22:17:54 - PERF - Completed: process_rag_query - Duration: 4.82s
+2025-10-08 22:18:06 - PERF - Started: record_and_transcribe
+2025-10-08 22:18:06 - PERF - Started: record_audio
+2025-10-08 22:18:11 - PERF - Completed: record_audio - Duration: 5.23s
+2025-10-08 22:18:11 - PERF - Started: transcribe
+2025-10-08 22:18:12 - PERF - Completed: transcribe - Duration: 0.82s
+2025-10-08 22:18:12 - PERF - Completed: record_and_transcribe - Duration: 6.05s
+2025-10-08 22:18:12 - PERF - Started: search_with_cache
+2025-10-08 22:18:12 - PERF - Started: similarity_search
+2025-10-08 22:18:12 - PERF - Completed: similarity_search - Duration: 0.03s
+2025-10-08 22:18:12 - PERF - Completed: search_with_cache - Duration: 0.03s
+2025-10-08 22:18:12 - PERF - Started: process_rag_query
+2025-10-08 22:18:12 - PERF - Started: generate_response
+2025-10-08 22:18:12 - PERF - Started: generate_response
+2025-10-08 22:18:23 - PERF - Completed: generate_response - Duration: 10.34s
+2025-10-08 22:18:23 - PERF - Completed: generate_response - Duration: 10.35s
+2025-10-08 22:18:23 - PERF - Completed: process_rag_query - Duration: 10.35s
+2025-10-08 22:18:54 - PERF - Started: record_and_transcribe
+2025-10-08 22:18:54 - PERF - Started: record_audio
+2025-10-08 22:18:59 - PERF - Completed: record_audio - Duration: 5.23s
+2025-10-08 22:18:59 - PERF - Started: transcribe
+2025-10-08 22:19:00 - PERF - Completed: transcribe - Duration: 0.74s
+2025-10-08 22:19:00 - PERF - Completed: record_and_transcribe - Duration: 5.98s
+2025-10-08 22:19:00 - PERF - Started: search_with_cache
+2025-10-08 22:19:00 - PERF - Started: similarity_search
+2025-10-08 22:19:00 - PERF - Completed: similarity_search - Duration: 0.02s
+2025-10-08 22:19:00 - PERF - Completed: search_with_cache - Duration: 0.02s
+2025-10-08 22:19:00 - PERF - Started: process_rag_query
+2025-10-08 22:19:00 - PERF - Started: generate_response
+2025-10-08 22:19:00 - PERF - Started: generate_response
+2025-10-08 22:19:05 - PERF - Completed: generate_response - Duration: 5.31s
+2025-10-08 22:19:05 - PERF - Completed: generate_response - Duration: 5.31s
+2025-10-08 22:19:05 - PERF - Completed: process_rag_query - Duration: 5.31s
+2025-10-08 22:46:34 - PERF - Started: transcribe
+2025-10-08 22:46:35 - PERF - Completed: transcribe - Duration: 1.28s
+2025-10-08 22:46:59 - PERF - Started: transcribe
+2025-10-08 22:47:00 - PERF - Completed: transcribe - Duration: 0.83s
+2025-10-08 22:47:00 - PERF - Started: search_with_cache
+2025-10-08 22:47:00 - PERF - Started: similarity_search
+2025-10-08 22:47:00 - PERF - Completed: similarity_search - Duration: 0.18s
+2025-10-08 22:47:00 - PERF - Completed: search_with_cache - Duration: 0.18s
+2025-10-08 22:47:00 - PERF - Started: process_rag_query
+2025-10-08 22:47:00 - PERF - Started: generate_response
+2025-10-08 22:47:00 - PERF - Started: generate_response
+2025-10-08 22:47:06 - PERF - Completed: generate_response - Duration: 5.24s
+2025-10-08 22:47:06 - PERF - Completed: generate_response - Duration: 5.24s
+2025-10-08 22:47:06 - PERF - Completed: process_rag_query - Duration: 5.24s
+2025-10-08 22:47:15 - PERF - Started: transcribe
+2025-10-08 22:47:15 - PERF - Completed: transcribe - Duration: 0.71s
+2025-10-08 22:47:51 - PERF - Started: record_and_transcribe
+2025-10-08 22:47:51 - PERF - Started: record_audio
+2025-10-08 22:47:56 - PERF - Completed: record_audio - Duration: 5.23s
+2025-10-08 22:47:56 - PERF - Started: transcribe
+2025-10-08 22:47:57 - PERF - Completed: transcribe - Duration: 0.82s
+2025-10-08 22:47:57 - PERF - Completed: record_and_transcribe - Duration: 6.05s
+2025-10-08 22:47:57 - PERF - Started: search_with_cache
+2025-10-08 22:47:57 - PERF - Started: similarity_search
+2025-10-08 22:47:57 - PERF - Completed: similarity_search - Duration: 0.03s
+2025-10-08 22:47:57 - PERF - Completed: search_with_cache - Duration: 0.03s
+2025-10-08 22:47:57 - PERF - Started: process_rag_query
+2025-10-08 22:47:57 - PERF - Started: generate_response
+2025-10-08 22:47:57 - PERF - Started: generate_response
+2025-10-08 22:48:03 - PERF - Completed: generate_response - Duration: 5.97s
+2025-10-08 22:48:03 - PERF - Completed: generate_response - Duration: 5.97s
+2025-10-08 22:48:03 - PERF - Completed: process_rag_query - Duration: 5.97s
+2025-10-08 23:10:30 - PERF - Started: transcribe
+2025-10-08 23:10:33 - PERF - Completed: transcribe - Duration: 2.86s
+2025-10-08 23:10:33 - PERF - Started: search_with_cache
+2025-10-08 23:10:33 - PERF - Started: similarity_search
+2025-10-08 23:10:33 - PERF - Completed: similarity_search - Duration: 0.57s
+2025-10-08 23:10:33 - PERF - Completed: search_with_cache - Duration: 0.57s
+2025-10-08 23:10:33 - PERF - Started: process_rag_query
+2025-10-08 23:10:33 - PERF - Started: generate_response
+2025-10-08 23:10:33 - PERF - Started: generate_response
+2025-10-08 23:10:40 - PERF - Completed: generate_response - Duration: 7.40s
+2025-10-08 23:10:40 - PERF - Completed: generate_response - Duration: 7.40s
+2025-10-08 23:10:40 - PERF - Completed: process_rag_query - Duration: 7.40s
+2025-10-08 23:10:59 - PERF - Started: transcribe
+2025-10-08 23:11:00 - PERF - Completed: transcribe - Duration: 0.83s
+2025-10-08 23:11:00 - PERF - Started: search_with_cache
+2025-10-08 23:11:00 - PERF - Started: similarity_search
+2025-10-08 23:11:00 - PERF - Completed: similarity_search - Duration: 0.03s
+2025-10-08 23:11:00 - PERF - Completed: search_with_cache - Duration: 0.03s
+2025-10-08 23:11:00 - PERF - Started: process_rag_query
+2025-10-08 23:11:00 - PERF - Started: generate_response
+2025-10-08 23:11:00 - PERF - Started: generate_response
+2025-10-08 23:11:05 - PERF - Completed: generate_response - Duration: 5.30s
+2025-10-08 23:11:05 - PERF - Completed: generate_response - Duration: 5.30s
+2025-10-08 23:11:05 - PERF - Completed: process_rag_query - Duration: 5.30s

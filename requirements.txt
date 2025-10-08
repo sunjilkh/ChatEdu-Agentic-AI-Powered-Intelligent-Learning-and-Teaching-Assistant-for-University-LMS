@@ -1,53 +1,35 @@
-# Core RAG Framework
-langchain>=0.1.0
+# Core ML and NLP libraries
+torch>=2.0.0
+transformers>=4.30.0
+sentence-transformers>=2.2.2
+langchain>=0.0.200
 langchain-community>=0.0.20
-langchain-ollama>=0.1.0
-langchain-chroma>=0.1.0
 
 # Vector Database
 chromadb>=0.4.0
 
 # PDF Processing
-pypdf>=3.0.0
+PyPDF2>=3.0.1
+pypdf>=3.12.0
 
-# Language Processing & Detection
-langdetect>=1.0.9
-indic-nlp-library>=0.81
+# HTTP and API clients
+httpx>=0.24.0
+requests>=2.31.0
 
-# Machine Learning & Embeddings
-transformers>=4.30.0
-torch>=2.0.0
-torchaudio>=2.0.0
-sentence-transformers>=2.2.0
-numpy>=1.21.0
-
-# Voice Input & Speech Recognition
-openai-whisper>=20231117
+# Audio processing for voice input
+SpeechRecognition>=3.10.0
 pyaudio>=0.2.11
-banglaspeech2text>=1.0.0
-speech-recognition>=3.10.0
+openai-whisper>=20230314
+webrtcvad>=2.0.10  # For continuous voice with VAD
 
-# Translation
-deep-translator>=1.11.0
+# Translation services
+googletrans>=4.0.0
 
-# Web Interface
-gradio>=4.0.0
+# Data processing
+numpy>=1.24.0
+pandas>=2.0.0
 
-# HTTP Requests
-requests>=2.28.0
-
-# System Utilities
-psutil>=5.9.0
-scipy>=1.9.0
-
-# Development & Testing
-pytest>=7.0.0
-pandas>=1.5.0
-
-# Audio Processing
-wave
-tempfile
-pathlib
-
-# Standard Library (included with Python)
-# os, sys, json, time, threading, datetime, argparse, warnings, functools, typing
+# Utilities
+python-dotenv>=1.0.0
+tqdm>=4.65.0
+colorama>=0.4.6
