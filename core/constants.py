@@ -27,11 +27,17 @@ PICKLE_EXTENSION = ".pickle"
 # ============================================================================
 
 # Preferred Models
-PREFERRED_LLM_MODEL = "llama3.2"
-FALLBACK_LLM_MODELS = ["llama3.2", "qwen2:1.5b", "phi3", "mistral", "llama2"]
+PREFERRED_LLM_MODEL = "llama3.2:latest"
+FALLBACK_LLM_MODELS = [
+    "llama3.2:latest",
+    "qwen2:1.5b",
+    "phi3:latest",
+    "mistral",
+    "llama2",
+]
 
 # Embedding Models
-ENGLISH_EMBEDDING_MODEL = "nomic-embed-text"
+ENGLISH_EMBEDDING_MODEL = "nomic-embed-text:latest"
 BANGLA_EMBEDDING_MODEL = "sagorsarker/bangla-bert-base"
 
 # Whisper Models
