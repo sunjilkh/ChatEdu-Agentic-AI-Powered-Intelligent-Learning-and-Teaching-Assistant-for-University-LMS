@@ -373,7 +373,7 @@ class BanglaRAGChatbot {
       await this.streamResponse(query, botMessageId);
     } catch (error) {
       console.error("Chat error:", error);
-      this.updateMessage(botMessageId, `❌ Error: ${error.message}`);
+      this.updateMessage(botMessageId, error.message);
     } finally {
       this.isStreaming = false;
       this.setInputState(true);
@@ -448,7 +448,17 @@ class BanglaRAGChatbot {
               break;
 
             case "error":
-              this.updateMessage(messageId, `❌ Error: ${data.message}`);
+              // Format message in 2 lines by breaking at natural point
+              const errorMsg = data.message;
+              const breakPoint =
+                errorMsg.indexOf("textbook.") + "textbook.".length;
+              const formattedMsg =
+                breakPoint > 0 && breakPoint < errorMsg.length
+                  ? errorMsg.substring(0, breakPoint) +
+                    "\n\n" +
+                    errorMsg.substring(breakPoint).trim()
+                  : errorMsg;
+              this.updateMessage(messageId, formattedMsg);
               break;
           }
         }

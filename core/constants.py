@@ -57,9 +57,9 @@ BANGLA_STT_MODELS = {
 # ============================================================================
 
 # LLM Settings
-MAX_TOKENS = 180
+MAX_TOKENS = 180  # Default for chat responses
 TEMPERATURE = 0.1
-TIMEOUT_SECONDS = 25
+TIMEOUT_SECONDS = 60  # Increased for question generation tasks
 
 # Chunk Settings
 DEFAULT_CHUNK_SIZE = 1000

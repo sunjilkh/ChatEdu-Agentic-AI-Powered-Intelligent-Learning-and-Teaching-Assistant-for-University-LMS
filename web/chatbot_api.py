@@ -48,11 +48,22 @@ def initialize_services():
     try:
         log_info("Initializing chatbot API services...", "api")
         from services.database_service import DatabaseFactory
+        import os
+
+        # Get absolute path to database directory
+        current_dir = os.path.dirname(os.path.abspath(__file__))
+        project_root = os.path.dirname(
+            current_dir
+        )  # Go up one level from 'web' to project root
+        db_path = os.path.join(project_root, "db")
+
+        log_info(f"📂 Database path: {db_path}", "api")
 
         # ONLY use PDF book (Cormen algorithms) - banglarag collection
         try:
             db_manager = DatabaseFactory.create_chroma_database(
-                collection_name="banglarag"
+                persist_directory=db_path,  # Use absolute path
+                collection_name="banglarag",  # The collection name
             )
             log_info("✅ PDF database (algorithm book) loaded successfully", "api")
             log_info("📚 Using ONLY the algorithm book database", "api")
@@ -76,6 +87,152 @@ def initialize_services():
         return False
 
 
+def is_query_relevant_to_algorithms(query: str) -> bool:
+    """
+    Check if query is related to algorithms/CS topics.
+    Returns False for completely irrelevant queries (cooking, sports, etc.).
+    """
+    query_lower = query.lower()
+
+    # Algorithm/CS keywords that indicate relevance
+    cs_keywords = [
+        "algorithm",
+        "sort",
+        "search",
+        "tree",
+        "graph",
+        "complexity",
+        "data structure",
+        "array",
+        "linked list",
+        "hash",
+        "queue",
+        "stack",
+        "dynamic programming",
+        "greedy",
+        "divide and conquer",
+        "recursion",
+        "time complexity",
+        "space complexity",
+        "big o",
+        "binary",
+        "linear",
+        "merge",
+        "quick",
+        "heap",
+        "bfs",
+        "dfs",
+        "dijkstra",
+        "bellman",
+        "fibonacci",
+        "factorial",
+        "iteration",
+        "loop",
+        "function",
+        "procedure",
+        "theorem",
+        "proof",
+        "induction",
+        "recurrence",
+        "master theorem",
+        "amortized",
+        "asymptotic",
+        "polynomial",
+        "np-complete",
+        "np-hard",
+        "optimization",
+        "shortest path",
+        "spanning tree",
+        "matrix",
+        "vector",
+    ]
+
+    # Obvious non-CS topics that should be rejected
+    irrelevant_keywords = [
+        "cook",
+        "recipe",
+        "omelette",
+        "omlet",
+        "egg",
+        "food",
+        "meal",
+        "sport",
+        "football",
+        "basketball",
+        "soccer",
+        "tennis",
+        "movie",
+        "film",
+        "music",
+        "song",
+        "singer",
+        "actor",
+        "weather",
+        "climate",
+        "temperature",
+        "rain",
+        "snow",
+        "travel",
+        "vacation",
+        "hotel",
+        "flight",
+        "tourism",
+        "fashion",
+        "clothes",
+        "dress",
+        "shoes",
+        "makeup",
+        "gardening",
+        "plant",
+        "flower",
+        "seed",
+        "soil",
+    ]
+
+    # Check for irrelevant keywords first
+    for keyword in irrelevant_keywords:
+        if keyword in query_lower:
+            log_info(
+                f"❌ Query rejected - irrelevant topic detected: '{keyword}'", "api"
+            )
+            return False
+
+    # Check for CS keywords - MUST have at least one to proceed
+    for keyword in cs_keywords:
+        if keyword in query_lower:
+            log_info(f"✅ Query accepted - CS topic detected: '{keyword}'", "api")
+            return True
+
+    # If no CS keywords found, reject the query
+    log_info(f"❌ Query rejected - no algorithms/CS keywords found", "api")
+    return False
+
+
+def check_context_relevance(query: str, documents: list) -> bool:
+    """
+    Check if retrieved documents are actually relevant to the query.
+    Returns False if documents seem completely unrelated.
+    """
+    if not documents:
+        return False
+
+    # If we got results from the database, trust them
+    # ChromaDB's similarity search is already doing relevance checking
+    # We just need to make sure we actually got documents back
+    if len(documents) > 0:
+        # Log the first document snippet for debugging
+        if hasattr(documents[0], "page_content"):
+            preview = documents[0].page_content[:100].replace("\n", " ")
+            log_info(
+                f"✅ Context relevance check passed. First doc preview: {preview}...",
+                "api",
+            )
+        return True
+
+    log_info(f"⚠️ No documents retrieved from database", "api")
+    return False
+
+
 def search_dual_databases(query: str, k: int = 3):
     """
     Search both course materials and PDF database with smart prioritization.
@@ -84,6 +241,13 @@ def search_dual_databases(query: str, k: int = 3):
     Only uses course materials for course-specific questions (syllabus, schedule, etc.)
     or as fallback if PDF has no results.
     """
+    global db_manager
+
+    # Ensure db_manager is initialized
+    if db_manager is None:
+        log_info("⚠️ db_manager is None, initializing services...", "api")
+        initialize_services()
+
     all_results = []
 
     # Search ONLY the PDF database (algorithm book)
@@ -218,12 +382,33 @@ def chat():
 
         # Search for relevant documents from both databases
         log_info(f"Processing query: {query}", "api")
+
+        # First check if query is even related to algorithms/CS
+        if not is_query_relevant_to_algorithms(query):
+            return jsonify(
+                {
+                    "response": "I can only help with algorithms and data structures topics from the textbook.\n",
+                    "sources": [],
+                    "success": True,
+                }
+            )
+
         relevant_docs = search_dual_databases(query, k=k)
 
         if not relevant_docs:
             return jsonify(
                 {
-                    "response": "I couldn't find relevant information in the course materials to answer your question.",
+                    "response": "I couldn't find relevant information in the algorithms textbook to answer your question. Please make sure your question is about topics covered in 'Introduction to Algorithms' by Cormen et al.",
+                    "sources": [],
+                    "success": True,
+                }
+            )
+
+        # Check if retrieved documents are actually relevant
+        if not check_context_relevance(query, relevant_docs):
+            return jsonify(
+                {
+                    "response": "I found some content in the textbook, but it doesn't appear to be directly relevant to your question. The 'Introduction to Algorithms' textbook focuses on algorithms, data structures, and computational complexity. Please rephrase your question to focus on these topics.",
                     "sources": [],
                     "success": True,
                 }
@@ -292,13 +477,29 @@ def chat_stream():
             """Generate streaming response."""
             try:
                 # Send initial status
+                yield f"data: {json.dumps({'type': 'status', 'message': 'Validating question...'})}\n\n"
+
+                # First check if query is even related to algorithms/CS
+                if not is_query_relevant_to_algorithms(query):
+                    error_msg = "I can only help with algorithms and data structures topics from the textbook.\n\nPlease ask about sorting, searching, graphs, dynamic programming, or other CS concepts."
+                    yield f"data: {json.dumps({'type': 'error', 'message': error_msg})}\n\n"
+                    return
+
+                # Send initial status
                 yield f"data: {json.dumps({'type': 'status', 'message': 'Searching knowledge base...'})}\n\n"
 
                 # Search for relevant documents from both databases
                 relevant_docs = search_dual_databases(query, k=k)
 
                 if not relevant_docs:
-                    yield f"data: {json.dumps({'type': 'error', 'message': 'No relevant information found'})}\n\n"
+                    error_msg = "I couldn't find relevant information in the algorithms textbook to answer your question. Please make sure your question is about topics covered in 'Introduction to Algorithms' by Cormen et al."
+                    yield f"data: {json.dumps({'type': 'error', 'message': error_msg})}\n\n"
+                    return
+
+                # Check if retrieved documents are actually relevant
+                if not check_context_relevance(query, relevant_docs):
+                    error_msg = "I found some content in the textbook, but it doesn't appear to be directly relevant to your question. The 'Introduction to Algorithms' textbook focuses on algorithms, data structures, and computational complexity. Please rephrase your question to focus on these topics."
+                    yield f"data: {json.dumps({'type': 'error', 'message': error_msg})}\n\n"
                     return
 
                 # Send sources
