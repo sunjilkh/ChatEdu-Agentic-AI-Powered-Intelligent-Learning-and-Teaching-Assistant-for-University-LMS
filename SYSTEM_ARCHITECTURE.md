@@ -6,6 +6,40 @@
 
 ---
 
+## 🔬 System Methodology
+
+```mermaid
+flowchart TB
+    Start([Start]) --> Input[📥 Input Layer<br/>PDF Documents + User Queries]
+    
+    Input --> Process1[📝 Document Processing<br/>Extract → Split → Embed]
+    Process1 --> Store[💾 Vector Storage<br/>ChromaDB]
+    
+    Input --> Process2[🎤 Query Processing<br/>Voice/Text → Embed]
+    Process2 --> Retrieve[🔍 Retrieval<br/>Similarity Search]
+    Store --> Retrieve
+    
+    Retrieve --> Generate[🤖 Generation<br/>LLM Response]
+    Generate --> Output[📤 Output Layer<br/>Answer + Sources]
+    
+    Output --> End([End])
+    
+    style Input fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    style Process1 fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style Process2 fill:#fff3e0,stroke:#f57c00,stroke-width:2px
+    style Store fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
+    style Retrieve fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
+    style Generate fill:#fce4ec,stroke:#c2185b,stroke-width:2px
+    style Output fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
+    style Start fill:#e0e0e0,stroke:#424242,stroke-width:2px
+    style End fill:#e0e0e0,stroke:#424242,stroke-width:2px
+```
+
+**Methodology Overview:**  
+The system follows a three-phase RAG (Retrieval-Augmented Generation) methodology: (1) **Indexing Phase** - PDF documents are processed, split into chunks, embedded using bilingual models, and stored in ChromaDB; (2) **Retrieval Phase** - User queries (text/voice) are embedded and matched against the vector database using semantic similarity to retrieve relevant context; (3) **Generation Phase** - Retrieved context is combined with the query and fed to Ollama LLMs for generating accurate, citation-backed responses. This pipeline ensures factual accuracy by grounding answers in source documents while supporting both English and Bangla languages.
+
+---
+
 ## 🏗️ High-Level System Architecture
 
 ```mermaid
