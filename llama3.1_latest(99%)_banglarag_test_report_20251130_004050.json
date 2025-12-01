@@ -4,7 +4,7 @@
     "total_tests": 200,
     "passed": 198,
     "failed": 2,
-    "pass_rate": 97.5,
+    "pass_rate": 99,
     "average_response_time": 22.56,
     "language_breakdown": {
       "english": {
