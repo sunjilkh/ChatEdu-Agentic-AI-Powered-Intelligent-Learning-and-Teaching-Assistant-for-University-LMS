@@ -6,37 +6,62 @@
 
 ---
 
-## 🔬 System Methodology
+## 🔬 Research Methodology
+
+### RAG System Development Methodology
 
 ```mermaid
 flowchart TB
-    Start([Start]) --> Input[📥 Input Layer<br/>PDF Documents + User Queries]
+    subgraph Phase1[Phase 1: Data Preparation]
+        A1[📚 Collect PDF Textbooks<br/>CLRS Algorithms] --> A2[🔍 Extract Text<br/>PyPDF2]
+        A2 --> A3[✂️ Text Chunking<br/>1000 chars, 200 overlap]
+        A3 --> A4[🏷️ Metadata Tagging<br/>Page numbers, IDs]
+    end
     
-    Input --> Process1[📝 Document Processing<br/>Extract → Split → Embed]
-    Process1 --> Store[💾 Vector Storage<br/>ChromaDB]
+    subgraph Phase2[Phase 2: Embedding Generation]
+        B1[🌍 Language Detection<br/>langdetect] --> B2{Language?}
+        B2 -->|English| B3[🔤 nomic-embed-text<br/>768-dim vectors]
+        B2 -->|Bangla| B4[🔤 bangla-bert-base<br/>768-dim vectors]
+        B3 --> B5[💾 Store in ChromaDB]
+        B4 --> B5
+    end
     
-    Input --> Process2[🎤 Query Processing<br/>Voice/Text → Embed]
-    Process2 --> Retrieve[🔍 Retrieval<br/>Similarity Search]
-    Store --> Retrieve
+    subgraph Phase3[Phase 3: Query Processing]
+        C1[👤 User Query<br/>Text/Voice] --> C2[🎤 Whisper ASR<br/>if voice input]
+        C2 --> C3[🔍 Query Embedding<br/>Same models as Phase 2]
+        C3 --> C4[📊 Similarity Search<br/>Cosine distance, top-5]
+        C4 --> C5[📝 Context Assembly<br/>Relevant chunks + metadata]
+    end
     
-    Retrieve --> Generate[🤖 Generation<br/>LLM Response]
-    Generate --> Output[📤 Output Layer<br/>Answer + Sources]
+    subgraph Phase4[Phase 4: Response Generation]
+        D1[🤖 LLM Selection<br/>llama3.2/mistral/phi3] --> D2[💭 Prompt Engineering<br/>Question + Context]
+        D2 --> D3[⚡ Stream Generation<br/>Real-time output]
+        D3 --> D4[✅ Quality Check<br/>Source citation]
+    end
     
-    Output --> End([End])
+    subgraph Phase5[Phase 5: Evaluation]
+        E1[🧪 Test Suite<br/>200 questions, 6 categories] --> E2[📊 Metrics Collection<br/>Accuracy, time, sources]
+        E2 --> E3[🎯 Performance Analysis<br/>99% accuracy achieved]
+        E3 --> E4[🔄 Iterative Refinement<br/>Model/prompt tuning]
+    end
     
-    style Input fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
-    style Process1 fill:#fff3e0,stroke:#f57c00,stroke-width:2px
-    style Process2 fill:#fff3e0,stroke:#f57c00,stroke-width:2px
-    style Store fill:#f3e5f5,stroke:#7b1fa2,stroke-width:2px
-    style Retrieve fill:#e8f5e9,stroke:#388e3c,stroke-width:2px
-    style Generate fill:#fce4ec,stroke:#c2185b,stroke-width:2px
-    style Output fill:#e3f2fd,stroke:#1976d2,stroke-width:2px
-    style Start fill:#e0e0e0,stroke:#424242,stroke-width:2px
-    style End fill:#e0e0e0,stroke:#424242,stroke-width:2px
+    Phase1 --> Phase2
+    Phase2 --> Phase3
+    Phase3 --> Phase4
+    Phase4 --> Phase5
+    Phase5 -.->|Feedback Loop| Phase2
+    Phase5 -.->|Feedback Loop| Phase4
+    
+    style Phase1 fill:#e3f2fd
+    style Phase2 fill:#f3e5f5
+    style Phase3 fill:#fff3e0
+    style Phase4 fill:#ffebee
+    style Phase5 fill:#e8f5e9
 ```
 
-**Methodology Overview:**  
-The system follows a three-phase RAG (Retrieval-Augmented Generation) methodology: (1) **Indexing Phase** - PDF documents are processed, split into chunks, embedded using bilingual models, and stored in ChromaDB; (2) **Retrieval Phase** - User queries (text/voice) are embedded and matched against the vector database using semantic similarity to retrieve relevant context; (3) **Generation Phase** - Retrieved context is combined with the query and fed to Ollama LLMs for generating accurate, citation-backed responses. This pipeline ensures factual accuracy by grounding answers in source documents while supporting both English and Bangla languages.
+**Methodology Summary:**
+
+The research methodology follows a five-phase approach to develop a bilingual RAG system for computer science education. **Phase 1** focuses on data preparation by extracting and chunking algorithm textbook content with metadata preservation. **Phase 2** implements dual-embedding strategy using language-specific models (nomic-embed-text for English, bangla-bert-base for Bangla) to generate 768-dimensional vectors stored in ChromaDB. **Phase 3** handles query processing through optional Whisper ASR for voice input, followed by semantic similarity search to retrieve top-5 relevant chunks. **Phase 4** employs multiple Ollama LLMs with prompt engineering to generate contextually accurate responses with source citations. **Phase 5** validates the system through comprehensive testing (200 test cases across 6 categories) achieving 99% accuracy, with continuous feedback loops enabling iterative refinement of embeddings and generation strategies.
 
 ---
 
